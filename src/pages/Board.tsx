@@ -145,23 +145,23 @@ export default function Board() {
         imageUrl={imageUrl}
         failed={failed}
         onImageError={() => setFailed(true)}
-        onMapPointerDown={(e: React.PointerEvent<HTMLDivElement>) => {
-          if (!selectedGrenade) return;
+        // onMapPointerDown={(e: React.PointerEvent<HTMLDivElement>) => {
+        //   if (!selectedGrenade) return;
 
-          const wrapper = wrapperRef.current;
-          if (!wrapper) return;
+        //   const wrapper = wrapperRef.current;
+        //   if (!wrapper) return;
 
-          const rect = wrapper.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
+        //   const rect = wrapper.getBoundingClientRect();
+        //   const x = e.clientX - rect.left;
+        //   const y = e.clientY - rect.top;
 
-          setGrenades((prev) => [
-            ...prev,
-            { id: crypto.randomUUID(), type: selectedGrenade, x, y },
-          ]);
+        //   setGrenades((prev) => [
+        //     ...prev,
+        //     { id: crypto.randomUUID(), type: selectedGrenade, x, y },
+        //   ]);
 
-          setSelectedGrenade(null);
-        }}
+        //   setSelectedGrenade(null);
+        // }}
       >
         {/* desenho */}
         <DrawingCanvas
