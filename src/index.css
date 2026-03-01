@@ -1,68 +1,62 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.map-card-wrap {
+  width: 100%;
+  height: 100%;
+  padding: clamp(8px, 1vw, 14px);
+  box-sizing: border-box;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.map-card {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+  /* o card começa menor, pra ter espaço de hover */
+  transform: scale(0.94);
+  transform-origin: center;
+
+  /* sem borda branca “base” */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.map-card-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+
+  transform: scale(1.02);
+  transition: transform 220ms ease;
+}
+
+/* ✅ glow + borda só no hover */
+.map-card:hover {
+  transform: scale(1.00);
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,0.9),
+    0 0 26px rgba(255,255,255,0.55),
+    0 18px 45px rgba(0,0,0,0.55);
+}
+
+.map-card:hover .map-card-img {
+  transform: scale(1.10);
+}
+
+/* clique */
+.map-card:active {
+  transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-card, .map-card-img { transition: none !important; }
+}
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
 }
