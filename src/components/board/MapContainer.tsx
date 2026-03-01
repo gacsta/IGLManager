@@ -1,4 +1,5 @@
-import { ReactNode, RefObject } from "react";
+import type { ReactNode, RefObject } from "react";
+
 
 type Props = {
   wrapperRef: RefObject<HTMLDivElement>;

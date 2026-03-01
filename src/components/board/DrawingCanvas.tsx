@@ -1,4 +1,5 @@
-import { RefObject, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import type { RefObject } from "react";
 
 export type Point = { x: number; y: number };
 export type Stroke = { color: string; points: Point[] };
