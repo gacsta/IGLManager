@@ -1,13 +1,15 @@
 import type { ReactNode, RefObject } from "react";
 
-
 type Props = {
   wrapperRef: RefObject<HTMLDivElement | null>;
   imageUrl: string;
   failed: boolean;
   onImageError: () => void;
   onImageLoad?: () => void;
-  children?: ReactNode; // overlays: canvas, players etc
+  children?: ReactNode;
+
+  // ✅ precisa existir para o Board compilar
+  onMapPointerDown?: (e: React.PointerEvent<HTMLDivElement>) => void;
 };
 
 export default function MapContainer({
@@ -17,17 +19,17 @@ export default function MapContainer({
   onImageError,
   onImageLoad,
   children,
+  onMapPointerDown,
 }: Props) {
   return (
     <div
+      ref={wrapperRef}
       style={{
         width: "min(100vw, 100vh)",
         height: "min(100vw, 100vh)",
         position: "relative",
       }}
-      ref={wrapperRef}
     >
-        
       {!failed ? (
         <>
           <img
@@ -42,10 +44,26 @@ export default function MapContainer({
               display: "block",
             }}
           />
+
+          {/* overlay que captura clique do mapa */}
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              zIndex: 60,
+              background: "transparent",
+              touchAction: "none",
+              pointerEvents: onMapPointerDown ? "auto" : "none",
+            }}
+            onPointerDown={onMapPointerDown}
+          />
+
           {children}
         </>
       ) : (
-        <div style={{ color: "white", padding: 24 }}>Falhou ao carregar: {imageUrl}</div>
+        <div style={{ color: "white", padding: 24 }}>
+          Falhou ao carregar: {imageUrl}
+        </div>
       )}
     </div>
   );
