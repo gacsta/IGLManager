@@ -11,7 +11,7 @@ const MAPS = [
 
 ] as const;
 
-type MapKey = typeof MAPS[number]["key"];
+// type MapKey = typeof MAPS[number]["key"];
 
 export default function MapSelect() {
   const navigate = useNavigate();

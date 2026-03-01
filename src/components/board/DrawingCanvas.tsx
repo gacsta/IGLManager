@@ -5,7 +5,7 @@ export type Point = { x: number; y: number };
 export type Stroke = { color: string; points: Point[] };
 
 type Props = {
-  wrapperRef: RefObject<HTMLDivElement>;
+  wrapperRef: RefObject<HTMLDivElement | null>;
   strokes: Stroke[];
   setStrokes: React.Dispatch<React.SetStateAction<Stroke[]>>;
   strokeColor: string; // cor do desenho (vem do PlayerSelector)

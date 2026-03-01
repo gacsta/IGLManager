@@ -9,7 +9,7 @@ export type Player = {
 
 type Props = {
   player: Player;
-  wrapperRef: React.RefObject<HTMLDivElement>;
+  wrapperRef: React.RefObject<HTMLDivElement | null>;
   selected: boolean;
   onCtrlSelect: (playerId: string) => void;
   onMove: (playerId: string, x: number, y: number) => void;

@@ -2,7 +2,7 @@ import type { ReactNode, RefObject } from "react";
 
 
 type Props = {
-  wrapperRef: RefObject<HTMLDivElement>;
+  wrapperRef: React.RefObject<HTMLDivElement | null>;
   imageUrl: string;
   failed: boolean;
   onImageError: () => void;

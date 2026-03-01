@@ -145,7 +145,7 @@ export default function Board() {
         imageUrl={imageUrl}
         failed={failed}
         onImageError={() => setFailed(true)}
-        onMapPointerDown={(e) => {
+        onMapPointerDown={(e: React.PointerEvent<HTMLDivElement>) => {
           if (!selectedGrenade) return;
 
           const wrapper = wrapperRef.current;

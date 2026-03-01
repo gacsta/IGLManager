@@ -8,7 +8,7 @@ export type Player = {
 };
 
 type Props = {
-  wrapperRef: React.RefObject<HTMLDivElement>;
+  wrapperRef: React.RefObject<HTMLDivElement | null>;
   players: Player[];
   setPlayers: React.Dispatch<React.SetStateAction<Player[]>>;
   selectedPlayerId: string;
