@@ -10,7 +10,7 @@ export type Grenade = {
 };
 
 type Props = {
-  wrapperRef: RefObject<HTMLDivElement | null>;
+  wrapperRef: React.RefObject<HTMLDivElement | null>;
   grenades: Grenade[];
   setGrenades: React.Dispatch<React.SetStateAction<Grenade[]>>;
 };
